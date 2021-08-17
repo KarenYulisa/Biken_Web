@@ -1,0 +1,21 @@
+    <!-- {% else %}   -->
+
+            <!-- LO que se muestra cuando no hay bicicletas subidas -->
+            <!-- <div class="div-noresultados_search"> -->
+                <!-- <h1 class="text-center mt-5 d-flex justify-content-center text-nosearch">Ups! No hay bicicletas subidas por el momento</h1> -->
+                <!-- <img src="{% static 'img/animations/anim_nosearch.svg' %}" alt="" class="img_nosearch img-fluid d-block mx-auto">               -->
+            <!-- </div> -->
+
+    <!-- {% endif %} -->
+
+
+    ----------------------------------------------------------------------------------------------------------------------------
+
+
+              <!-- {% render_field form.name class="form-control inputs_forms formulario__input" type="text" placeholder="Agrega tu nombre y Apellido" name="name" id="name" %} -->
+
+
+              <!-- {% render_field form.email class="form-control inputs_forms formulario__input" type="email" placeholder="E-mail" name="email" id="email" %} -->
+
+
+              <!-- {% render_field form.mensaje class="form-control inputs_forms formulario__input"  placeholder="Tu mensaje..." name="mensaje" id="mensaje" %} -->

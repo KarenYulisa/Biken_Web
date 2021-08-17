@@ -1,0 +1,146 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Biken || Editar bicicleta{% endblock %}
+
+{% block classbody %}
+
+<body class="bgimg_upload">{% endblock %}
+
+
+
+
+    {% block content %}
+
+    <div class="container">
+        <div class="row-fluid">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+
+                <!-- <img src="{% static '/img/imgs_plus/portacon.png' %}" height="120px" width="260px"> -->
+                <strong>
+                    <div class="mt-5 titulopage">
+                        Editar datos de la Bicicleta
+                    </div>
+                </strong>
+
+                <hr size="1px" color="gray" />
+                <!-- {% load crispy_forms_tags %} -->
+
+                <form class="container mt-5" method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="form-group">
+                                <label for="Marca">Marca</label>
+                                {% render_field form.marca class="form-control inputs_forms " type="" placeholder="Ejemplo:BMX,Gw"%}
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="color" class="form-label">Color</label>
+                                {% render_field form.color class="form-control form-control-color inputcolor_form" type="color" id="color" value="#2059BD"  title="Elige  el color de tu bici"%}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="material">Material</label>
+                        {% render_field form.material class="form-control inputs_forms custom-select" type="" placeholder="Material de Bici"%}
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                        {% render_field form.categoria class="form-control inputs_forms custom-select" type="" placeholder="Elige una categoria"%}
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio Alquiler</label>
+                        {% render_field form.precioalquiler class="form-control inputs_forms" type="" placeholder="Coloca el precio de alquiler"%}
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Tiempo de alquiler</label>
+                        <div class="row ">
+
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    {% render_field form.valortiempohoras class="form-control inputs_forms_number" type="number" min="01" max="23" placeholder="00" %}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">horas</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    {% render_field form.valortiempomin class="form-control inputs_forms_number" type="number" min="0" max="59" placeholder="00" %}
+                                    <div class="input-group-append ">
+                                        <span class="input-group-text" id="basic-addon2">minutos</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="helptext_input-number font-italic">
+                                <span>Elija las horas que corresponden al precio de alquiler de su bicicleta (Ejemplo : $xx.xxx por 5 horas)</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Descripción</label>
+                        {% render_field form.descripcionbici class="form-control inputs_forms" type="" placeholder="Agrega una descripción de tu Bici"%}
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox my-1 mr-sm-2">
+                            {% render_field form.disponible class="custom-control-input btn_biken_success" name='box1' type="checkbox" id="check1"%}
+                            <label class="custom-control-label" for="check1"> 
+                                
+                                {% if object.disponible == True %}
+                                <strong class="text-success">Bicicleta disponible para ser alquilada</strong>    
+                                {% else %}
+                                <strong class="text-danger">Bicicleta no disponible para ser alquilada</strong> 
+                                {% endif %}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <!-- {{form.foto}} -->
+                        <label class="foto" for="foto">Foto</label>
+                        {% render_field form.foto class="form-control  inputs_forms " type="file" id="foto" name="foto" placeholder="Sube la foto de tu Bici"%}
+                    </div>
+
+                    {% if form.errors %}
+                    <ul class="text-danger font-weight-bold font-italic">
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <li>
+                            {{ error }}
+                        </li>
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <button type="submit" class="btn btn_biken_success mt-5">Editar datos</button>
+                    <a href="{% url 'perfil' %}" type="button" class="btn btn-secondary btn_biken_cancel mt-5">Cancelar</a>
+
+                </form>
+
+                <div class="img-ruedas mt-5">
+                    <!-- <img src="{% static '/img/imgs_plus/fotorueda.png'%}" height="110px" width="240px" align="left"> -->
+                </div>
+
+
+            </div>
+            <div class="col-lg-6"></div>
+        </div>
+    </div>
+
+    <br>
+
+    {% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title%}Biken || Login{% endblock %}
+
+{% block classbody %}
+
+<body class="img-bg_login"></body>{% endblock %}
+
+
+{% block content %}
+<div class="row align-items-center justify-content-center minh-100">
+	<div class="col-sm-6 offset-com">
+		<br>
+		<div class="card container-formlogin ">
+
+			<div class="row">
+				<div class="col-lg-6 contenedorimgs">
+					<img class="img-fluid img_login" src='{% static "img/imgs_login/bg-com6.jpg" %}' alt="">
+					<img class="img-fluid img_login top" src='{% static "img/imgs_login/bg-com.jpeg" %}' alt="">
+				</div>
+				<div class="col-lg-6 form-login">
+					<div>
+						<h3 class="text-center text-title_login"> <strong>BIKEN</strong></h3>
+					</div>
+					<br>
+					{% load crispy_forms_tags %}
+					<form action='' method="POST">
+						<input type="hidden" name="next" value="{{next}}">
+						{% csrf_token %}
+						<!-- {{form | crispy}} -->
+						{% include 'pages/components/messages/messages_form_login.html' %}
+						
+						
+						<div class="form-group">
+							<label for="names">Correo Electronico</label>
+							<!-- {{form.username}} -->
+							{% render_field form.username class="form-control inputs_forms" type="email" placeholder="Email"%}
+						</div>
+
+						<div class="form-group">
+							<label for="names">Contraseña</label>
+							<!-- {{form.password}} -->
+							{% render_field form.password class="form-control inputs_forms" type="password" placeholder="Contraseña"%}
+						</div>
+
+
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary d-block mx-auto btn_login btn-block">Ingresar</button>
+						</div>
+
+					</form>
+					<div>
+						<h3 class="text-center text-noaccount_login "><small>¿No tienes una cuenta? <a
+									href="{% url 'registro' %}" class="text-register_login">Registrate</a> y se parte de
+								la
+								comunidad Biken</small></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block footer %}
+
+<div></div>
+{% endblock %}
+
+
+

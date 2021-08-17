@@ -1,0 +1,342 @@
+{% extends 'root.html' %}
+
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}
+    
+    {% if user.miBici.count == 0 %}
+    {% else %}
+    ({{user.miBici.count}}) 
+    {% endif %}  
+    
+    {{user.first_name|capfirst}} {{user.last_name|capfirst}} | Biken
+    
+{% endblock title %}
+
+    
+{% block content %}
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-12 d-flex justify-content-center ">
+
+
+            {% if request.user.username == user.username %}
+            <!-- icono de configuracion  e edicion de perfil  -->
+            <a href="{% url 'settings' %}">
+                <span class="iconify iconsettings_profile " data-icon="fluent:edit-settings-24-filled"
+                    data-inline="false"></span>
+            </a>
+            <!-- ----------- -->
+            {% endif %}
+
+                <!-- estilos del banner (portada del perfil de los usuarios) -->
+                <style>
+                    .banner-profile{
+                        transition: .5s ease all;
+                        background: linear-gradient(to bottom,rgb(251, 251, 254,0) 50%, rgba(251, 251, 254,1.5) ), url('{{user.perfil.get_imagePortada}}') no-repeat;
+                        -webkit-background-size: cover;
+                        -moz-background-size: cover;
+                        -o-background-size: cover;
+                        border-bottom-right-radius: 30px;
+                        border-bottom-left-radius: 30px;
+                        background-position-y: top;
+                        background-size: 100% 100%;
+                        height: 100%;
+                        width: 100%;       
+                    }
+
+
+                    body.dark .banner-profile{
+                        transition: .5s ease all;
+                        background: linear-gradient(to bottom,rgba(22, 29, 41,0) 10%, rgba(22, 29, 41,1.5) ), url('{{user.perfil.get_imagePortada}}') no-repeat;
+                        -webkit-background-size: cover;
+                        -moz-background-size: cover;
+                        -o-background-size: cover;
+                        border-bottom-right-radius: 30px;
+                        border-bottom-left-radius: 30px;
+                        background-position-y: top;
+                        background-size: 100% 100%;
+                        height: 100%;
+                        width: 100%; 
+                    }
+
+                </style>
+                <!-- end estilos banner -->
+
+
+                <div class="banner-profile">
+    
+                    <div class="info_user">
+                            <div class="container-fluid  d-flex justify-content-center">
+                                <img src="{{user.perfil.get_image}}" class="img_user_profile">
+                            </div>
+                            <div
+                                class="container-fluid name_user_profile d-flex justify-content-center text-capitalize mt-3 mb-3">
+                                <h1>{{user.first_name}} {{user.last_name}}<br></h1>
+                            </div>
+                            <div class="container-fluid  d-flex justify-content-center">
+                                <h1 class="username_user_profile">@{{user.username}}</h1>
+                            </div>
+                    </div><!-- end info_user -->
+
+                </div><!-- end banner pefil -->
+
+        </div> <!-- end col-lg-12 -->
+    </div> <!-- end row -->
+
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-12 mt-5">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        {% if timesalquiler > 0 %}
+
+                        <div class="col-xl-4 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100">
+                                <div class="card-body card-body2">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold colorbikentext text-uppercase"
+                                                style="font-size: 15px;">
+                                                Veces que has alquilado una Bici
+                                            </div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800 colortextcount-card">
+                                                {{timesalquiler}}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-file-contract fa-3x iconos-admin pt-3"></i>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        {% else %}
+                        {%endif%}                        
+                        
+
+                        {% if numcontratos > 0 %}
+
+                        <div class="col-xl-4 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100">
+                                <div class="card-body card-body2">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold colorbikentext text-uppercase"
+                                                style="font-size: 15px;">
+                                                Contratos de Alquiler
+                                            </div>
+                                            <div class="h2 mb-0 font-weight-bold text-gray-800 colortextcount-card">
+                                                {{numcontratos}}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-file-contract fa-3x iconos-admin pt-3"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <a href="#" onclick="abrir_contratosmodal('{% url 'listadocontratos' %}')">Ver contratos</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        {%endif%}
+
+                        {% if user.miBici.count > 0 %}
+
+                        <div class="col-xl-4 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body card-body4">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold colorbikentext text-uppercase mb-1"
+                                                style="font-size: 15px;">
+                                                {% if request.user.username == user.username%}
+                                                Mis Bicicletas Subidas
+                                                {%else%}
+                                                Bicicletas subidas de {{user.first_name}}
+                                                {%endif%}
+                                            </div>
+                                            <div class="h2 mb-0  font-weight-bold text-gray-800 colortextcount-card">
+                                                {{user.miBici.count}}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-bicycle fa-3x iconos-admin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        {%endif%}
+
+                        <div class="col-xl-4 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body card-body3">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold colorbikentext text-uppercase mb-3"
+                                                style="font-size: 15px;">
+                                                {% if request.user.username == user.username%}
+
+                                                {% if user.date_joined|length > 6 %}
+                                                Eres parte de Biken desde el
+
+                                                {% else %}
+
+                                                Eres parte de Biken desde
+                                                {% endif %}
+
+
+                                                {%else%}
+
+
+                                                {% if user.date_joined|length > 6 %}
+                                                {{user.first_name}} es parte de Biken desde
+
+                                                {% else %}
+
+                                                {{user.first_name}} es parte de Biken desde el
+                                                {% endif %}
+
+
+                                                {%endif%}
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800 colortextdate-card">
+                                                {{user.date_joined|naturalday}}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar-alt fa-3x iconos-admin"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end Container fluid -->
+
+
+
+    <div class="row">
+        {% for b in miBici %}
+        <div class="col-lg-3 mt-3">
+            <div class="card">
+                <a  href="#" onclick="abrir_detailmodal('{% url 'descripcionbike' b.idmibicicleta %}')">
+                    <img class="card-img-top imgcatalogo placeholderimgdown" src="{{b.foto.url}}"
+                        alt="Card image cap"></a>
+                <div class="card-body">
+
+                    {% if request.user.username == user.username %}
+
+                    {% else %}
+                    <p class="card-text title font-weight-bold">
+                        <img src="{{b.user.perfil.get_image}}" alt="" class="imgperfil_post">
+                        <a href="{% url 'perfil' b.user.username %}">{%if b.user.first_name == '' %}
+                            {{ b.user.username}}
+                            {%else%}
+                            {{ b.user.first_name}}
+                            {%endif%}
+                        </a>
+                    </p>
+                    {% endif %}
+                    <p class="card-text textcategoriacard text-capitalize font-weight-bold">{{b.categoria}}</p>
+                    <p class="card-text texttiempocard">{{b.timestamp|naturaltime}}</p>
+                    <p class="card-text textpreciocard">Alquiler <strong>${{b.precioalquiler}}</strong></p>
+
+                    <p class="card-text">
+                            
+                        {% if b.disponible == True %}
+                            <i class="text-success font-weight-bold"> Disponible </i>
+                        {% else %}
+                            <i class="text-danger font-weight-bold"> No esta disponible </i>
+                        {% endif %}
+                            
+                    </p>
+
+                    {% if request.user.username == user.username %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <a href="{% url 'editar_bicicleta' b.idmibicicleta%}">
+                                <button class="btn btncatalogo d-block mx-auto btneditarbike"  data-toggle="tooltip" data-placement="bottom" title="Editar Bicicleta"><i class="far fa-edit"></i>
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- <a href="{% url 'eliminar_bicicleta' b.idmibicicleta%}" data-toggle="modal" data-target="#modalBici"> -->
+                            <a href="#" onclick="abrir_modal('{% url 'eliminar_bicicleta' b.idmibicicleta%}')">
+                                <button type="button" class="btn btn-danger d-block mx-auto btneliminarbike"  data-toggle="tooltip" data-placement="bottom" title="Eliminar bicicleta"><i class="far fa-trash-alt"></i>
+                                </button>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <a href="{% url 'contratobike' b.idmibicicleta %}">
+                        <button class="btn btncatalogo d-block mx-auto "><i class="far fa-heart"></i>
+                            Alquilar esta Bici
+                        </button>
+                    </a>
+
+
+                    {% endif %}
+
+
+                    <div class="modal fade" id="modaldeleteBici" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                    </div>
+
+                    <div class="modal fade" id="modaldetailBici" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                    </div>    
+
+                    <div class="modal fade" id="modalcontratos" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    </div> 
+            
+                </div>
+            </div>
+        </div> <!-- end col-lg-3 -->
+        {% endfor %}
+    </div> <!-- end row -->
+</div> <!-- end container principal -->
+
+{% include 'pages/components/messages/messages_form_editbike.html' %}
+
+
+<script>
+    var $ = jQuery.noConflict();
+    function abrir_modal(url){
+        $('#modaldeleteBici').load(url,function(){
+            $(this).modal('show');
+        });
+    }
+
+    var $ = jQuery.noConflict();
+    function abrir_detailmodal(url){
+        $('#modaldetailBici').load(url,function(){
+            $(this).modal('show');
+        });
+    }
+
+    var $ = jQuery.noConflict();
+    function abrir_contratosmodal(url){
+        $('#modalcontratos').load(url,function(){
+            $(this).modal('show');
+        });
+    }
+
+</script>
+
+
+{% endblock content %}

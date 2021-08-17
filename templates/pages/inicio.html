@@ -1,0 +1,143 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load humanize %}
+
+
+{% block title %}Biken | Inicio{%endblock%}
+{% block content %}
+
+<div class="container-fluid">
+    
+    {% include 'pages/components/carousel.html' %}
+    
+    <div class="filter-home d-flex justify-content-center mt-5"> 
+        <a href="{% url 'bicicletasdisponibles' %}" class="btn btn_biken_success ml-4 {% if request.path|slice:':25' == '/home/filter/disponibles/'%}active-filter-home{% endif%}">
+            <i class="far fa-check-circle"></i> 
+            Bicicletas Disponibles
+        </a>
+        <a href="{% url 'bicicletasurbanas' %}" class="btn btn_biken_success ml-4 {% if request.path|slice:':21' == '/home/filter/urbanas/'%}active-filter-home{% endif%}">
+            <span class="iconify" data-icon="healthicons:city" data-inline="false"></span>
+            Bicicletas urbanas
+        </a>
+        <a href="{% url 'bicicletasruta' %}" class="btn btn_biken_success ml-4 {% if request.path|slice:':18' == '/home/filter/ruta/'%}active-filter-home{% endif%}">
+            <i class="fas fa-road"></i>
+            Bicicletas ruta
+        </a>
+        <a href="{% url 'bicicletastodoterreno' %}" class="btn btn_biken_success ml-4 {% if request.path|slice:':25' == '/home/filter/todoterreno/'%}active-filter-home{% endif%}">
+            <span class="iconify" data-icon="ic:outline-terrain" data-inline="false"></span>
+            Bicicletas todo Terreno
+        </a>
+        <a href="{% url 'home' %}" class="btn btn_biken_success ml-4">
+            <span class="iconify" data-icon="ic:baseline-all-inclusive" data-inline="false"></span>
+            Todas
+        </a>
+    </div>
+
+    
+    <div class="container" id="myDiv">
+
+        {% if page %}
+        <div class="card-columns mt-5">
+            
+            {% for b in page %}
+            <catalogo>
+                <div class="card mb-5">
+                    <a href="#" onclick="abrir_detailmodal('{% url 'descripcionbike' b.idmibicicleta %}')">
+                        <img class="card-img-top imgcatalogo placeholderimgdown" src="{{b.foto.url}}" alt="Card image cap"></a>
+                    <div class="card-body">
+                        <p class="card-text textnamecard font-weight-bold">
+                            <img src="{{b.user.perfil.get_image}}" alt="" class="imgperfil_post">
+                            <a href="{% url 'perfil' b.user.username %}">{%if b.user.first_name == '' %}
+                                {{ b.user.username}}
+                                {%else%}
+                                {{ b.user.first_name|capfirst}} {{b.user.last_name|capfirst}}
+                                {%endif%}
+                            </a>
+                        </p>
+    
+                        <p class="card-text textcategoriacard text-capitalize font-weight-bold">{{b.categoria}}</p>
+                        <p class="card-text texttiempocard">{{b.timestamp|naturaltime}}</p>
+                        <p class="card-text textpreciocard">Alquiler <strong>${{b.precioalquiler}}</strong><i > {{b.valortiempohoras}} hora{{b.valortiempohoras|pluralize}}</i></p>
+                        <p class="card-text">
+                            
+                            {% if b.disponible == True %}
+                                <i class="text-success font-weight-bold"> Disponible </i>
+                            {% else %}
+                                <i class="text-danger font-weight-bold"> No esta disponible </i>
+                            {% endif %}
+                                
+                        </p>
+    
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <!-- circulo de color de la bicicleta de la card  -->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                    viewBox="0 0 120 120">
+                                    <circle cx="60" cy="45" r="40" fill="{{b.color}}" />
+                                </svg>
+                            </div>
+                            
+                            {% if request.user.username == b.user.username %}
+                            <div class="col-lg-10">
+                                
+                                <a href="{% url 'editar_bicicleta' b.idmibicicleta %}"  id=alert2 class="btn btncatalogo d-block mx-auto"><i class="far fa-heart"></i>
+                                    Editar tu Bici</a>                                
+                                </div>
+                            {% else%}
+                                
+                            {% if b.disponible == True %}
+                            
+                            <div class="col-lg-10">
+
+                                <a href="{% url 'contratobike' b.idmibicicleta %}"  id=alert2 class="btn btncatalogo d-block mx-auto"><i class="far fa-heart"></i>
+                                    Alquilar esta Bici</a>                                
+                            </div>
+                            {% else %}
+
+                                
+                            {% endif %}
+                                
+                            {% endif %}
+                                
+                        </div>
+                    </div>
+                </div>
+            </catalogo>
+            {% endfor %}
+            
+        </div>
+
+        {% else %}
+            
+            <div class="div-noresultados_search">
+                <h1 class="text-center mt-5 d-flex justify-content-center text-nosearch">No se han encontrado resultados para esta búsqueda:</h1>
+                <h1 class="text-center font-weight-bold colorbikentext mt-3 d-flex justify-content-center  font-weight-bold">{{request.GET.Buscar}}</h1>  
+                <img src="{% static 'img/animations/anim_nosearch.svg' %}" alt="" class="img_nosearch img-fluid d-block mx-auto">              
+            </div>
+            
+        {% endif %}
+        
+        {% include 'pages/components/pagination.html' %}
+    </div>
+
+
+
+
+    <div class="modal fade" id="modaldetailBici" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    </div>
+
+
+</div>
+
+
+<script>
+    var $ = jQuery.noConflict();
+    function abrir_detailmodal(url){
+        $('#modaldetailBici').load(url,function(){
+            $(this).modal('show');
+        });
+    }
+</script>
+
+{% endblock %}

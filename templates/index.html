@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='{% static "/arch/jquery-3.5.0.js" %}' type="text/javascript"></script>
+    <link href='{% static "/arch/bootstrap/css/bootstrap.css" %}' rel="stylesheet" type="text/css" />
+    <link href='{% static "/css/normalize.css" %}' rel="stylesheet" type="text/css">
+    <link href='{% static "/css/all.css" %}' rel="stylesheet" type="text/css" />
+    <link href='{% static "/css/pushbar.css" %}' rel="stylesheet" type="text/css">
+    <link href='{% static "/css/mis_estilos.css"%}' rel="stylesheet" type="text/css">
+    <link href='{% static "/css/mediaQuerys/mediaquery.css"%}' rel="stylesheet" type="text/css">
+    <link href='{% static "/img/iconsBiken/icono.png"%}' rel="shortcut icon" />
+    <title>Biken</title>
+</head>
+
+<body class="principal">
+    <div id="particles-js"></div>
+    <div class="loader-page"></div>
+
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand icon_biken" href="#">
+                <img src='{% static "img/iconsBiken/icono.png" %}' alt="logo" class="icon-index ">
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link icon-burger_index" href="#" data-pushbar-target="pushbar-menu">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div data-pushbar-id="pushbar-menu" class="pushbar" data-pushbar-direction="left">
+            <div class="btn-cerrar">
+                <button class="btn btnclose" data-pushbar-close><i class="fas fa-times"></i></button>
+            </div>
+            <nav class="navbar navbarindex">
+
+                <ul class="navbar-nav">
+
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link items_navbarindex" href="{% url 'logout' %}">Cerrar Sesión</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link items_navbarindex" href="{% url 'login' %}">Inicia Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link items_navbarindex" href="{% url 'registro' %}">Registrarse</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="nav-item">
+                        <a class="nav-link items_navbarindex" href="{% url 'contacto' %}">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link items_navbarindex" href="{% url 'quienessomos' %}">Quienes somos</a>
+                    </li>
+                    <br>
+                    <li class="nav-item">
+                        <p class="nav-link" href="#">Nuestras redes Sociales</p>
+                        <div class="sociales icons-sociales_navbarindex col-2">
+                            <a href="#" class="items_icons-sociales"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="items_icons-sociales"><i class="fab fa-youtube"></i></a>
+                            <a href="https://github.com/cyborglf" class="items_icons-sociales"><i class="fab fa-github"></i></a>
+                            <a href="#" class="items_icons-sociales"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="items_icons-sociales"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6 div-bike">
+                <img class="img-fluid bike" src='{% static "img/animations/bikeindex.svg" %}'>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p class="d-flex justify-content-center">
+                            <span class="titulo">BIKEN</span>
+                        <h4 class=" d-flex subtitulo justify-content-center mb-5">Alquiler de bicicletas</h4>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-12 ">
+                        {% if user.is_authenticated %}
+                        <div class="d-flex justify-content-center">
+                            <img src="{{request.user.perfil.get_image}}" class="img_user_profile_index" alt="">
+                        </div>
+                        <p class="welcome mt-2 font-weight-bold h4">Bienvenido de vuelta</p>
+                        <p class="welcome1"> {{request.user.first_name|capfirst}} {{request.user.last_name|capfirst}}</p>
+                        {% else %}
+                        <p class="welcome mt-5">Bienvenido a nuestra pagina Biken, que disfrute
+                            de su visita.</p>
+                        <p class="welcome1">¡Esperamos su pronto regreso!</p>
+                        {% endif %}
+                        <div  class="d-flex justify-content-center">        
+                            <a href="{% url 'home' %}"><button class="btn btnindex">ENTRAR</button></a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src='{% static "/js/particles.min.js" %}'></script>
+    <script src='{% static "/js/part.js" %}'></script>
+    <script src='{% static "/js/pushbar.js" %}'></script>
+    <script type="text/javascript">
+        const pushbar = new Pushbar({
+            blur: false,
+            overlay: false,
+        });
+    </script>
+
+    <script src='{% static "/js/functions.js" %}' type="text/javascript"></script>
+    <script src='{% static "/arch/bootstrap/js/bootstrap.js" %}' type="text/javascript"></script>
+</body>
+
+</html>

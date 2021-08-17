@@ -1,0 +1,1722 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+
+
+:root {
+
+  --color-light: #FBFBFE;
+
+  --color-grisnormal: rgb(161, 161, 161);
+  --color-grisnormal_hover: rgb(90, 90, 90);
+  /* --color-dark: #192229; */
+  --color-dark: #161D29;
+  /* --color-gris: #212E36; */
+  --color-gris: #273142;
+  /* --color-grisclaro: #2A3B47; */
+  --color-grisclaro: #303C4F;
+  --color-biken: #2059BD;
+  --color-bikenclaro: #4b84e6;
+  --color-bikenoscuro: #0C2247;
+  --color-bgcard: #f3f4f7;
+  --color-white: #C8CDD0;
+  --color-orange: rgb(204, 133, 1);
+
+  --sombra-light: 10px 10px 8px 0px hsl(0, 0%, 90%);
+  --sombra-dark: 10px 10px 8px 0px hsl(0, 0, 0.16);
+
+  /* ---fuentes--- */
+
+  --fuente-roman: 'Times New Roman', Times, serif;
+  --body-font: 'Quicksand', sans-serif;
+
+}
+
+/* colores generales de biken */
+
+.colorbiken {
+  background-color: var(--color-biken);
+}
+
+
+.colorbikentext {
+  color: var(--color-biken);
+}
+
+
+/* tema dark */
+body.dark .colorbikentext {
+  color: var(--color-white)
+}
+
+/* end colores generales */
+
+
+
+
+/* estilos de los titulos de las paginas */
+
+.titulopage {
+  font-size: 28px;
+  font-family: var(--fuente-roman);
+  text-align: center;
+  font-weight: bold;
+  color: var(--color-biken)
+}
+
+/* tema dark */
+body.dark .titulopage {
+  color: var(--color-white);
+}
+
+/* end estilos titulos de las paginas */
+
+
+
+
+
+/* animate css */
+.icon_biken {
+  animation: pulse;
+  animation-duration: 2s;
+}
+
+/* animate css icono biken*/
+.icon_biken-home:hover {
+  animation: tada;
+  animation-duration: 4s;
+}
+
+
+
+
+/* ..........start styles boton success de la mayoria de las  ventanas ..................... */
+
+.btn_biken_success {
+  background-color: var(--color-biken);
+  color: var(--color-light);
+  border-radius: 30px !important;
+}
+
+.btn_biken_success:hover {
+  color: var(--color-biken);
+  background-color: var(--color-light);
+  border: 1px solid var(--color-biken);
+}
+
+
+/* tema dark */
+body.dark .btn_biken_success {
+  background-color: var(--color-bikenclaro);
+  color: var(--color-white);
+}
+
+/* tema dark */
+body.dark .btn_biken_success:hover {
+  background-color: var(--color-bikenoscuro);
+  border: 1px solid var(--color-bikenoscuro);
+}
+
+/* ..........end styles boton success de la mayoria de las  ventanas ..................... */
+
+
+/* ..........start styles boton cancel de la mayoria de las  ventanas ..................... */
+
+.btn_biken_cancel {
+  border-radius: 30px !important;
+}
+
+/* ..........end styles boton cancel de la mayoria de las  ventanas ..................... */
+
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--color-light);
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+}
+
+
+/* tema dark */
+body.dark {
+  background-color: var(--color-dark);
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+}
+
+
+nav {
+  font-size: 14px;
+}
+
+
+
+
+/*...........................................Styles index..........................................................................*/
+
+.principal {
+  background-image: url(../img/animations/wave.svg);
+  /* background-position-y: bottom; */
+  background-repeat: no-repeat;
+  background-position-y: 250px;
+  background-size: 200%;
+  position: relative;
+}
+
+/*-------------------Pagina Bienvenida-------------------------*/
+
+#particles-js {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+
+
+.icon-index {
+  width: 75px;
+  ;
+}
+
+.titulo {
+  /*---------------Titulo de la pagina index----------*/
+  font-size: 160px;
+  color: var(--color-biken);
+  font-family: perpetua;
+  margin-top: 10%;
+}
+
+.subtitulo {
+  /*---------------Subtitulo de la pagina index----------*/
+  font-size: 22px;
+  font-family: bold;
+  margin-top: -11%;
+  z-index: 2;
+}
+
+
+.welcome,
+.welcome1 {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+
+.bike {
+  margin-left: 8%;
+  width: 48%;
+  position: fixed;
+}
+
+.icon-burger_index {
+  position: relative;
+  z-index: 2;
+  margin-right: 15px;
+  font-size: 23px;
+}
+
+/* ionos de redes sociales de la barra lateral */
+.sociales {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sociales a {
+  font-size: 20px;
+  color: white;
+}
+
+.sociales a:hover {
+  color: #000000;
+}
+
+
+/* ----------------- */
+
+/* estilos de la barra lateral index */
+
+
+.navbarindex {
+  margin-top: 30%;
+  padding: 15%;
+}
+
+.items_navbarindex {
+  color: rgba(255, 255, 255);
+  margin-top: 15%;
+}
+
+.items_navbarindex:hover {
+  color: rgb(0, 0, 0);
+}
+
+
+.icons-sociales_navbarindex {
+  margin-left: 35%;
+  padding: 10%;
+}
+
+.items_icons-sociales {
+  padding: 5px;
+}
+
+/* .......... */
+
+
+.btnindex,
+.btncatalogo,
+.btncat {
+  background-color: var(--color-biken);
+  color: white;
+  border-radius: 30px !important;
+}
+
+/* tema dark */
+body.dark .btncatalogo {
+  background-color: var(--color-bikenoscuro);
+  color: white;
+}
+
+
+
+.btnindex {
+  font-family: bold;
+  position: relative;
+  z-index: 10000;
+}
+
+.btnindex:hover {
+  background-color: white;
+  border: solid 1px var(--color-biken);
+  color: var(--color-biken);
+}
+
+.btncatalogo:hover {
+  background-color: white;
+  border: solid 1px var(--color-biken);
+  color: var(--color-biken);
+}
+
+/* tema dark */
+body.dark .btncatalogo:hover {
+  background-color: var(--color-dark);
+  border: solid 1px var(--color-dark);
+  color: var(--color-white);
+}
+
+/* .................................imagen de peril del index................................ */
+.img_user_profile_index {
+  border-radius: 100%;
+  border: solid 2px var(--color-bikenoscuro);
+  height: 100px;
+  width: 100px;
+}
+
+/* .................................styles pushbar index..................................... */
+
+.pushbar {
+  background-color: rgba(32, 89, 189, 0.7);
+}
+
+.btnclose {
+  margin-top: 1%;
+  margin-left: 85%;
+  color: #ffffff;
+  border-radius: 50%;
+}
+
+.btnclose:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: var(--color-biken);
+  border-radius: 50%;
+}
+
+
+/*-----------------------------------------------start styles cargar todas las paginas---------------------------------------*/
+
+.loader-page {
+  position: fixed;
+  z-index: 25000;
+  background: rgba(32, 89, 189, 0.2);
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .5s ease;
+}
+
+.loader-page::before {
+  content: "";
+  position: absolute;
+  border: 2px solid rgb(32, 89, 189);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-left: 4px solid rgb(255, 255, 255);
+  border-top: 4px solid rgb(255, 255, 255);
+  animation: rotarload 1s linear infinite;
+  transform: rotate(0deg);
+}
+
+@keyframes rotarload {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+.loader-page::after {
+  content: "";
+  position: absolute;
+  border: 4px solid rgb(32, 89, 189, .8);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border-left: 2px solid rgba(246, 51, 9, 0);
+  border-top: 2px solid rgba(246, 51, 9, 0);
+  animation: rotarload 1s ease-out infinite;
+  transform: rotate(0deg);
+}
+
+
+/*------------------------------------------- end styles cargar todas las paginas---------------------------------------------------*/
+
+
+/*------------------------------------------------------ home page-----------------------------------------------------------*/
+
+
+
+/*..................Estilos de la imagen de perfil de los usuarios...........*/
+
+.img_perfilUser {
+  background-color: var(--color-biken);
+  border-radius: 30px;
+  margin: 5px;
+  width: 43px;
+  height: 40px;
+}
+
+
+/* tema dark */
+body.dark .img_perfilUser {
+  background-color: var(--color-bikenoscuro);
+}
+
+.nav__link_user {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  border-radius: .5rem;
+  color: white;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.nav__link_user:hover {
+  background-color: var(--color-bikenoscuro);
+  color: white;
+}
+
+/* tema dark */
+body.dark .nav__link_user:hover {
+  background-color: #213d6e;
+}
+
+/*........................................end styles imagen perfil............................*/
+
+
+/*---------------------------------------start styles card catalogo---------------------------*/
+
+
+.card-columns {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+
+.textnamecard {
+  font-size: 18px;
+}
+
+
+/* tema dark */
+body.dark .textnamecard a {
+  color: var(--color-light);
+}
+
+
+body.dark .textnamecard a:hover {
+  color: var(--color-white);
+}
+
+.textpreciocard {
+  font-style: italic;
+  text-align: end;
+  font-size: 17px;
+}
+
+/* tema dark */
+body.dark .textpreciocard {
+  color: var(--color-white);
+}
+
+
+.textcategoriacard {
+  font-size: 19px;
+}
+
+/* tema dark */
+body.dark .textcategoriacard {
+  color: var(--color-white);
+}
+
+
+.texttiempocard {
+  line-height: 0;
+  font-size: 15px;
+}
+
+/* tema dark */
+body.dark .texttiempocard {
+  color: var(--color-white);
+}
+
+
+
+.card-columns .card {
+  background-color: var(--color-bgcard);
+  border: none;
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+  border-radius: 30px;
+  box-shadow: var(--sombra-light);
+}
+
+/*  tema dark */
+body.dark .card {
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+  background-color: var(--color-gris);
+  box-shadow: var(--sombra-dark);
+}
+
+
+.col-lg-3 .card {
+  border: none;
+  background-color: var(--color-bgcard);
+}
+
+.card-columns .card:hover {
+  border: solid 1px rgba(32, 89, 189, 0.5);
+}
+
+
+a .card-img-top {
+  border-radius: 30px;
+  height: 20% !important;
+}
+
+
+.placeholderimgdown {
+  position: relative;
+}
+
+.imgperfil_post {
+  border-radius: 50px;
+  height: 35px !important;
+  width: 35px !important;
+}
+
+.imgcatalogo {
+  width: 100%;
+}
+
+
+/*---------------------------------end styles card catalogo----------------------------------------*/
+
+
+
+/*-------------------------------------start styles buscar home page-------------------------------*/
+
+
+
+
+.carouselprincipal {
+  border-bottom-left-radius: 30px;
+  border-end-end-radius: 30px;
+  box-shadow: var(--sombra-light);
+}
+
+
+/* tema dark */
+body.dark .carouselprincipal {
+  box-shadow: var(--sombra-dark);
+}
+
+
+.div_search {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.input-search {
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+  height: 55px;
+  width: 80vh;
+  outline: none;
+  border: solid 1px white;
+  border-radius: 30px;
+  padding-left: 10px;
+  text-transform: capitalize;
+}
+
+
+/* tema dark */
+body.dark .input-search::placeholder {
+  color: var(--color-white);
+}
+
+
+/* tema dark */
+body.dark .input-search {
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+  background: var(--color-gris);
+  border: solid 1px var(--color-gris);
+  color: var(--color-white);
+}
+
+.div-btn-search {
+  display: flex;
+  justify-content: center;
+}
+
+
+.btn-search {
+  color: white;
+  font-size: 20px;
+  z-index: 1000;
+  position: absolute;
+  top: 45%;
+  margin-top: 3px;
+  margin-right: 4%;
+  border-radius: 30px;
+}
+
+
+/* tema dark */
+body.dark .btn-search {
+  background-color: var(--color-grisclaro);
+}
+
+
+.btn-search:hover {
+  background-color: #d3d3d3;
+  color: var(--color-biken);
+}
+
+
+/* tema dark */
+body.dark .btn-search:hover {
+  background-color: var(--color-white);
+  color: var(--color-grisclaro);
+}
+
+/*-------------------------------------end styles buscar home page-------------------------------*/
+
+
+/* ...........................................start styles paginacion home......................... */
+
+.linkanterior {
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+}
+
+.linksiguiente {
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
+}
+
+
+/* tema dark */
+body.dark .linkanterior {
+  background-color: var(--color-gris) !important;
+  border: none;
+  color: var(--color-white);
+}
+
+
+body.dark .linksiguiente {
+  background-color: var(--color-gris) !important;
+  border: none;
+  color: var(--color-white);
+}
+
+body.dark .active .linkpage {
+  background-color: var(--color-bikenoscuro) !important;
+  color: var(--color-white);
+}
+
+
+body.dark .linkpage {
+  background-color: var(--color-gris) !important;
+  border: none;
+  color: var(--color-white);
+}
+
+body.dark .linkpage:hover,
+body.dark .linksiguiente:hover,
+body.dark .linkanterior:hover {
+  background-color: var(--color-grisclaro) !important;
+  border: none;
+  color: var(--color-white);
+}
+
+/* ............................................end styles paginacion home......................... */
+
+/* ............................................start styles busqueda no encontrada home......................... */
+
+.div-noresultados_search{
+  margin-top: 20px;
+  padding-top: 20px;
+  height: 500px;
+}
+
+.img_nosearch{
+  height: 450px;
+  width: 450px;
+}
+
+body.dark .text-nosearch{
+  color: var(--color-bikenclaro);
+}
+
+
+/* ............................................end styles busqueda no encontrada home......................... */
+
+/* ............................................start styles filtros de busqueda home......................... */
+
+.active-filter-home, .active-filter-home:hover{
+  background-color: var(--color-light);
+  color:  var(--color-orange);
+  border-color: var(--color-orange);
+  font-weight: bold;
+}
+
+body.dark .active-filter-home, body.dark .active-filter-home:hover{
+  background-color: var(--color-grisclaro);
+  border-color: var(--color-white);
+}
+
+/* ............................................end styles filtros de busqueda home......................... */
+
+
+
+/* ............................................start styles ventanas modals  perfil......................... */
+
+.modal-content-profile {
+  padding: 15px;
+  background-color: var(--color-white) !important;
+  border-radius: 30px;
+}
+
+/* tema dark */
+body.dark .modal-content-profile {
+  background-color: var(--color-dark) !important;
+}
+
+
+.modal-header-profile,
+.modal-footer-profile {
+  border: none;
+}
+
+
+/* tema dark */
+body.dark .modal-body-profile h5 {
+  color: var(--color-white);
+}
+
+/* tema dark */
+body.dark .modal-header-profile button span {
+  color: var(--color-white);
+}
+
+
+.iconmodal_deletebike {
+  animation: heartBeat;
+  animation-duration: 2s;
+}
+
+
+
+/* ............................................end styles ventanas modals perfil......................... */
+
+
+/* ............................................start styles ventanas modals home......................... */
+
+.imgbike_detailbike {
+  height: 300px;
+  width: 500px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+.imguser_detailbike {
+  z-index: 1000;
+  height: 150px;
+  width: 150px;
+  margin-top: 20%;
+  border-radius: 1000px;
+}
+
+.modal-content-home,
+.modal-body-home {
+  padding: 0 !important;
+}
+
+.modal-content-home {
+  border-radius: 30px;
+  background-color: var(--color-light);
+}
+
+/* tema dark */
+body.dark .modal-content-home {
+  background-color: var(--color-dark);
+}
+
+
+.modal-content-home h5 {
+  color: var(--color-biken);
+}
+
+/* tema dark */
+body.dark .modal-content-home h5 {
+  color: var(--color-bikenclaro);
+}
+
+
+.modal-content-home h6 {
+  color: var(--color-dark);
+}
+
+/* tema dark */
+body.dark .modal-content-home h6 {
+  color: var(--color-white);
+}
+
+
+.modal-footer-home {
+  border: none;
+}
+
+/* ............................................end styles ventanas modals home......................... */
+
+/*---------------------------------------------------end buscar homepage-------------------------------------------*/
+
+
+/* ---------------------------------------------------start screen editbicicleta--------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------------end screen editbicicleta---------------------------------------------------  */
+
+
+
+
+
+
+
+/*---------------------------------------jumbotron paginas--------------------------*/
+
+
+
+
+
+
+/* alertas -sweat alert */
+
+
+
+.title_alert {
+  color: var(--color-biken);
+}
+
+
+/* ----------- */
+
+
+
+
+/* Alertas de error registro de usuarios */
+
+.texterror {
+  color: red;
+}
+
+.backgroundalert {
+  background-color: yellow;
+}
+
+/* end estilo alerta */
+
+
+
+/* ventana estadisticas */
+.user-content {
+  padding: 10px;
+  width: 190px;
+  margin-top: 13%;
+  margin-right: 10px;
+}
+
+/* ----------- */
+
+
+/* ----------------------------ventana contrato y estadisticas----------------------------------*/
+
+.bg-nav1 {
+  background-image: url(../img/svg/bg-com2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 10%;
+}
+
+
+.bg-menuuser {
+  background-color: #ffff;
+}
+
+.item-user {
+  font-size: 12px;
+  background-color: #ffff;
+  color: var(--color-biken);
+}
+
+.item-user:hover {
+  text-decoration: none;
+  background: #F1F1F1;
+}
+
+.icon2 {
+  /* iconos del menu de cerrar sesion*/
+  padding-right: 10px;
+  color: rgba(2, 89, 189, 0.4);
+  font-size: 17px;
+}
+
+
+.title-manager {
+  font-size: 30px;
+  color: #ffffff;
+  font-family: perpetua;
+}
+
+.nav-admin {
+  margin-top: 10%;
+}
+
+.nav-admin1 {
+  color: #C4C3C0;
+  margin-top: 20px;
+}
+
+.nav-admin1:hover {
+  color: #ffffff;
+}
+
+.title-tab {
+  margin-top: 90px;
+  color: rgb(32, 89, 189);
+}
+
+
+.persona-reg {
+  background-color: rgba(32, 89, 189, 0.6);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.card-body1 {
+  border-left: solid 3px var(--color-biken) !important;
+}
+
+.card-body2 {
+  border-left: solid 3px #20BD3F !important;
+}
+
+.card-body3 {
+  border-left: solid 3px #0CAAAC !important;
+}
+
+.card-body4 {
+  border-left: solid 3px var(--color-biken) !important;
+}
+
+.card-body-1 {
+  height: 343px;
+}
+
+.card-body-2 {
+  height: 350px;
+}
+
+.card-body-3 {
+  height: 330px;
+}
+
+.chart-area {
+  height: 300px;
+}
+
+.chart-pie {
+  height: 250px;
+}
+
+
+.bgnav-admin {
+  background-color: rgba(2, 89, 189, 0.8);
+  font-size: 14px;
+}
+
+.mt-box {
+  margin-top: 150px;
+  margin-left: 20%;
+}
+
+.mt-box2 {
+  margin-top: 170px;
+}
+
+
+/* -----------------------------------------end ventana estadisticas----------------------------------------------- */
+
+
+
+
+
+
+/* styles inputs  */
+
+input::-webkit-input-placeholder {
+  font-style: italic;
+  font-size: 14px;
+}
+
+textarea::-webkit-input-placeholder {
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* ------------ */
+
+
+
+/* ------------------------------------------start styles screen login------------------------------------------------------- */
+
+.img-bg_login {
+  background-image: url(../img/imgs_login/bg-com2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.img-bg_login::before {
+  content: '';
+  background: inherit;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  filter: blur(6px);
+  transform: scale(1.4, 1.1);
+}
+
+
+
+.container-formlogin {
+  border-color: transparent;
+  background-color: rgba(32, 89, 189, 0.3);
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+
+}
+
+.form-login {
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+
+.text-title_login {
+  margin-top: 10px;
+  color: var(--color-biken);
+  font-family: perpetua;
+  font-size: 40px;
+}
+
+/* tema dark */
+body.dark .text-title_login {
+  color: var(--color-white);
+}
+
+
+
+.text-noaccount_login {
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  font-style: italic;
+  margin-top: 50px;
+}
+
+
+.text-register_login {
+  color: #00FBFF;
+}
+
+
+.text-register_login:hover {
+  text-decoration: none;
+  color: #84AEF7;
+}
+
+
+
+
+.btn_login {
+  margin-top: 30px;
+  background-color: transparent;
+  border: solid 1px #ffff;
+}
+
+.btn_login:hover {
+  background-color: var(--color-biken);
+}
+
+
+.contenedorimgs img {
+  position: absolute;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.contenedorimgs img.top:hover {
+  opacity: 0;
+}
+
+
+.img_login {
+  width: 100%;
+  height: auto;
+}
+
+@supports(object-fit: cover) {
+  .img_login {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    /*left: 0;*/
+  }
+}
+
+
+.minh-100 {
+  height: 92.8vh;
+}
+
+
+/* ------------------------------------------end styles screen login------------------------------------------------------- */
+
+
+
+
+/*--------------------------------------------------------------------------estilos footer-----------------------------------------------*/
+
+.footerInf {
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: var(--sombra-light);
+  text-align: center;
+  background-color: var(--color-bikenoscuro);
+  background-image: url(../img/iconsBiken/icono3.png);
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: right;
+  margin-bottom: 25px;
+}
+
+
+/* tema dark */
+body.dark .jumbotrom {
+  box-shadow: var(--sombra-dark);
+  background-color: var(--color-gris);
+}
+
+
+.text-footer {
+  line-height: 70%;
+  padding-top: 15px;
+  font-weight: bold;
+  font-size: 70px;
+  font-family: 'Zeyada', cursive;
+  color: var(--color-biken);
+}
+
+
+/* tema dark */
+body.dark .text-footer {
+  color: var(--color-white);
+}
+
+
+.text-footerCopy {
+  line-height: 0;
+
+}
+
+
+.titlefooter {
+  text-align: start;
+}
+
+.subtitlefooter {
+  font-size: 15px;
+  color: #aaaaaa;
+  line-height: 90%;
+  text-align: start;
+}
+
+.subtitlefooter:hover {
+  color: #ffffff;
+}
+
+.iconfooter {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.iconfooter:hover {
+  color: #aaaaaa;
+}
+
+
+/*---------------------------------------------------------------end estilos footer------------------------------------------------------*/
+
+/*-----------------------------------------Fondos de las paginas -------------------------------------------------------------------*/
+.bgimg_upload {
+  background-image: url(../img/animations/bike4.svg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-x: right;
+}
+
+.bgimg_registro {
+  background-image: url(../img/animations/bike2.svg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-x: right;
+}
+
+body.dark.bgimg_registro {
+  background-image: url(../img/animations/bike2_dark.svg);
+}
+
+.bgimg_paginamensaje {
+  background-image: url(../img/animations/bike3.svg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-x: right;
+}
+
+
+.bgimg_editBike {
+  background-image: url(../img/animations/bikeindex.svg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position-x: right;
+}
+
+
+.anim_pagequinenesomos {
+  margin-top: 25%;
+}
+
+
+/*-----------------------------------------end styles Fondos de las paginas --------------------------------------------------------*/
+
+/*--------------------------------------------------------estilos pagina quienes somos------------------------------------------------*/
+
+
+
+.banner_qs {
+  width: 60%;
+  height: 20%;
+}
+
+
+/* tema dark */
+body.dark .banner_qs {
+  display: none;
+}
+
+
+
+/* tema dark */
+body.dark .textoquienessomos {
+  color: var(--color-white);
+}
+
+
+
+/*--------------------------------------------------------end styles pagina quienes somos--------------------------------------------*/
+
+/*--------------------------------------------------------estilos pagina contacto------------------------------------------------*/
+
+body.dark .textcontacto {
+  color: var(--color-white);
+}
+
+
+/*--------------------------------------------------------end styles pagina contacto--------------------------------------------*/
+
+
+/*------------------------------------------------------------start styles Screen Profile--------------------------------------------------*/
+
+
+.info_user {
+  margin: 30px 0 30px 0;
+}
+
+
+.name_user_profile{
+  color: #000;
+}
+
+
+/* tema dark */
+body.dark .name_user_profile{
+  color: var(--color-light);
+}
+
+
+.username_user_profile {
+  line-height: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+
+/* tema dark */
+body.dark .username_user_profile{
+  color: var(--color-light);
+}
+
+
+
+
+.img_user_profile {
+  margin-bottom: 0;
+  height: 140px;
+  width: 140px;
+  border-radius: 100%;
+}
+
+.row .col-lg-3 .card {
+  border-radius: 30px;
+  box-shadow: var(--sombra-light);
+}
+
+/* tema dark */
+body.dark .row .col-lg-3 .card {
+  box-shadow: var(--sombra-dark);
+}
+
+/* tema dark */
+body.dark .colortextcount-card,
+body.dark .colortextdate-card {
+  color: #84AEF7;
+}
+
+
+.iconos-admin {
+  color: rgba(2, 89, 189, 0.4);
+}
+
+/* tema dark */
+body.dark .iconos-admin {
+  color: #C4C3C0
+}
+
+
+
+.iconsettings_profile {
+  height: 40px;
+  width: 40px;
+  margin-left: 90%;
+  margin-top: 5%;
+  padding: 8px;
+  background-color: var(--color-light);
+  color: var(--color-biken);
+  border-radius: 100%;
+  border: solid 1px var(--color-biken);
+  position: absolute;
+  font-size: 30px;
+}
+
+
+.iconsettings_profile:hover {
+  background-color: var(--color-biken);
+  color: var(--color-light);
+  border: solid 1px var(--color-biken);
+}
+
+/*------------------------------------------------------------end  styles Screen Profile--------------------------------------------------*/
+
+/*------------------------------------------------------------start styles Screen UploadBike-------------------------------------------------*/
+
+
+
+.subtituloUploadBike {
+  text-align: center;
+}
+
+
+/* tema dark */
+body.dark .subtituloUploadBike {
+  color: var(--color-white);
+}
+
+
+/*------------------------------------------------------------end styles Screen UploadBike------------------------------------------------*/
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------modo nocturno -------------------------------------*/
+
+
+/* ...........................Styles modo nocturno de inputs de los formularios................................... */
+
+body.dark label {
+  color: var(--color-white);
+}
+
+body.dark .input-search_nav {
+  background-color: var(--color-grisclaro);
+  border: solid 1px var(--color-grisclaro);
+}
+
+body.dark .inputs_forms {
+  background-color: var(--color-gris);
+  color: rgb(238, 238, 238);
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+}
+
+body.dark .inputs_forms_number {
+  background-color: var(--color-gris);
+  color: rgb(238, 238, 238);
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+}
+
+
+body.dark .custom-select {
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+  background-color: var(--color-gris);
+  color: var(--color-white);
+}
+
+
+body.dark .custom-file-label {
+  background-color: var(--color-gris);
+  color: var(--color-white);
+}
+
+/* ...........................end Styles modo nocturno de inputs de los formularios................................... */
+
+/* ------------------------------start styles switch(boton de cambio de tema)------------------ */
+.switch {
+  background: #4983e7;
+  border-radius: 1000px;
+  border: none;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  outline: none;
+}
+
+.switch:hover {
+  background: #6395eb;
+}
+
+
+.switch.active {
+  background: var(--color-dark);
+}
+
+
+/* tema dark */
+body.dark .switch.active:hover {
+  background: var(--color-gris);
+}
+
+
+.switch span {
+  display: block;
+  background: none;
+  color: orange;
+}
+
+.switch.active span {
+  color: #fff;
+
+}
+
+.icon_modnight {
+  font-size: 1.5rem;
+  margin-right: 7rem;
+  padding-top: .2rem;
+}
+
+
+/* ------------------------------end styles switch----------------------------------------------- */
+
+/* -----------------------------start styles Barra de Scroll Personalizada -----------------------------*/
+
+/* .......................start scroll modal...................... */
+.modal::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: var(--color-biken);
+  border-radius: 10px;
+  border-right: 2px solid rgb(156, 156, 156);
+}
+
+
+/* modo dark */
+body.dark .modal::-webkit-scrollbar-thumb {
+  background: var(--color-grisclaro);
+  border-radius: 10px;
+  border-right: 2px solid var(--color-dark);
+}
+
+/*............................. end scroll modal.......................  */
+
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--color-biken);
+  border-radius: 10px;
+  border-right: 2px solid #fff;
+}
+
+
+/* modo dark */
+body.dark::-webkit-scrollbar-thumb {
+  background: var(--color-grisclaro);
+  border-radius: 10px;
+  border-right: 2px solid var(--color-dark);
+}
+
+/* -----------------------------end styles Barra de Scroll Personalizada -----------------------------*/
+
+
+
+
+
+/* ------------------------start styles screeen settings user----------- */
+
+.optionsconfig {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 35px;
+  margin-right: 35px;
+  padding: 20px;
+  border: solid 1px var(--color-biken);
+  border-radius: 30px;
+}
+
+
+.icons_optionsconfig {
+  color: grey;
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+body.dark .icons_optionsconfig {
+  color: var(--color-white);
+}
+
+/* tema dark */
+body.dark .optionsconfig {
+  border-color: var(--color-grisclaro);
+  color: var(--color-white)
+}
+
+
+.optionsconfig:hover {
+  background-color: var(--color-biken);
+  color: var(--color-white);
+}
+
+
+/* tema dark */
+body.dark .optionsconfig:hover {
+  background-color: var(--color-bikenoscuro);
+}
+
+
+
+/* tema dark */
+
+.img_settings {
+  margin-left: 10%;
+  margin-top: 10%;
+  height: 90%;
+  width: 90%;
+}
+
+/* ------------------------end styles screeen settings user----------- */
+
+/* ------------------------start styles screeen change email----------- */
+
+.form-email {
+  margin-top: 50%;
+}
+
+/* ------------------------end styles screeen change email----------- */
+
+
+
+/* ------------------------start styles screeen change password----------- */
+
+.text_error-changepass {
+  color: red;
+}
+
+.helptext_changepass {
+  font-size: 13px;
+}
+
+/* tema dark */
+body.dark .helptext_changepass {
+  color: var(--color-white);
+}
+
+
+
+/* ------------------------end styles screeen change password----------- */
+
+/* -----------------------------start styles screeen Login Admin--------------------------------------- */
+
+.container-principal_login {
+  background-image: url(../img/animations/waveloginAdmin2.svg);
+  background-repeat: no-repeat;
+  background-position-y: -120px;
+}
+
+.body_login {
+  background-color: var(--color-bgcard);
+  background-image: url(../img/animations/waveloginAdmin.svg);
+  background-repeat: no-repeat;
+  background-position-y: 550px;
+  background-size: 100%;
+}
+
+
+.container-form {
+  margin-top: 15%;
+}
+
+
+.div-form_loginadmin {
+  background-color: var(--color-light);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--sombra-light);
+}
+
+.anim_login_admin {
+  margin-top: 10%;
+  margin-left: 50px;
+  height: 100%;
+}
+
+.div_iconobiken_loginadmin {
+  padding: 0 10px 10px 10px;
+  background-color: var(--color-light);
+  width: 170px;
+  height: 140px;
+  box-shadow: var(--sombra-light);
+  border-radius: 20px;
+}
+
+.iconobiken_loginadmin {
+  width: auto;
+  height: auto;
+}
+
+.btn_biken_success_loginadmin {
+  background-color: #D3D7DF;
+  border-radius: 10px;
+  color: var(--color-bikenoscuro);
+  margin-top: 30px;
+}
+
+
+.btn_biken_success_loginadmin:hover {
+  background-color: var(--color-bikenoscuro);
+  color: #D3D7DF;
+}
+
+
+.textsweet-alert_loginadmin {
+  color: var(--color-white);
+}
+
+
+.alert {
+  padding: 0;
+  border-radius: 10px;
+}
+
+.text-alert-error_loginadmin {
+  font-size: 14px;
+  margin: 10px;
+}
+
+
+
+
+/* -----------------------------end styles screeen Login Admin-------------------------------------- */
+

@@ -1,0 +1,169 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Biken || Sube tu Bicicleta{% endblock %}
+
+{% block classbody %}
+
+<body class="bgimg_upload" id="body">{% endblock %}
+
+
+
+
+    {% block content %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+
+                <!-- <img src="{% static '/img/imgs_plus/portacon.png' %}" height="120px" width="260px"> -->
+                <strong>
+                    <div class="mt-5 titulopage">
+                        ANUNCIA TU BICICLETA</div>
+                </strong>
+
+                <div class="mt-5 subtituloUploadBike">Selecciona las características de tu bicicleta, añade una
+                    foto y
+                    establece la tarifa deseada. Una vez hecho esto, tu bici estarà disponible para ser alquilada.</div>
+
+                <hr size="1px" color="gray" />
+                <!-- {% load crispy_forms_tags %} -->
+
+                <form class="container mt-5" method="POST" enctype="multipart/form-data" class="formulariouploadbike" id="formulariouploadbike">
+
+                    {% csrf_token %}
+                    <!-- {{ form | crispy}} -->
+
+
+
+
+
+                    <div class="row">
+                        <div class="col-lg-9">
+
+                            <div class="formulario__grupo" id="grupo__marca">
+                                <label for="marca" class="formulario__label">Marca</label>
+                                <div class="formulario__grupo-input">
+                                    {% render_field form.marca class="form-control inputs_forms"  placeholder="Ejemplo:BMX,Gw" id="marca" name="marca"%}
+                                </div>
+                                <p class="formulario__input-error">Este campo debe ser mayor a 3 caractéres y  solo puede tener letras</p>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="color" class="form-label">Color</label>
+                                {% render_field form.color class="form-control form-control-color inputcolor_form" type="color" id="color" value="#2059BD"  title="Elige  el color de tu bici"%}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="material">Material</label>
+                        {% render_field form.material class="form-control inputs_forms custom-select" type="" placeholder="Material de Bici"%}
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                        {% render_field form.categoria class="form-control inputs_forms custom-select" type="" placeholder="Elige una categoria"%}
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="precio"></label>
+                        {% render_field form.precioalquiler class="form-control inputs_forms" type="" placeholder="Coloca el precio de alquiler"%}
+                    </div> -->
+
+
+                    <div class="formulario__grupo mb-3" id="grupo__precioalquiler">
+                        <label for="precioalquiler" class="formulario__label">Precio Alquiler</label>
+                        <div class="formulario__grupo-input">
+                            {% render_field form.precioalquiler class="form-control inputs_forms"  placeholder="Coloca el precio de alquiler de tu bici" id="precioalquiler" name="precioalquiler"%}
+                        </div>
+                        <p class="formulario__input-error">Agrega un valor de precio valido, utiliza el punto para separar los miles.</p>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="precio">Tiempo de alquiler</label>
+                        <div class="row ">
+
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    {% render_field form.valortiempohoras class="form-control inputs_forms_number" type="number" min="01" max="23" placeholder="00" %}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">horas</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    {% render_field form.valortiempomin class="form-control inputs_forms_number" type="number" min="0" max="59" placeholder="00" %}
+                                    <div class="input-group-append ">
+                                        <span class="input-group-text" id="basic-addon2">minutos</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="helptext_input-number font-italic">
+                                <span>Elija las horas que corresponden al precio de alquiler de su bicicleta (Ejemplo : $xx.xxx por 5 horas)</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="formulario__grupo mb-3" id="grupo__descripcionbici">
+                        <label for="descripcionbici" class="formulario__label">Descripción</label>
+                        <div class="formulario__grupo-input">
+                            {% render_field form.descripcionbici class="form-control inputs_forms"  placeholder="Agrega una descripción de tu Bici (opcional)" id="descripcionbici" name="descripcionbici"%}
+                        </div>
+                        <p class="formulario__input-error">La descripción debe ser mayor a  15 caracteres y no contener caracteres especiales</p>
+                    </div>
+
+
+
+
+                    <div class="custom-file">
+                        <label class="custom-file-label inputs_forms" for="customFile">Foto</label>
+                        {% render_field form.foto class="custom-file-input" type="file" placeholder="Sube la foto de tu Bici"%}
+                    </div>
+
+
+
+                    {% include 'pages/components/messages/messages_forms.html' %}
+                    <!-- {% if form.errors %}
+                    <ul class="text-danger font-weight-bold font-italic">
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                        <li>
+                            {{ error }}
+                        </li>
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    {% endif %} -->
+
+                    <button type="submit" class="btn btn_biken_success d-block  mx-auto mt-5">Subir bicicleta</button>
+
+                </form>
+
+                <div class="img-ruedas mt-5">
+                    <!-- <img src="{% static '/img/imgs_plus/fotorueda.png'%}" height="110px" width="240px" align="left"> -->
+                </div>
+
+
+            </div>
+            <div class="col-lg-6"></div>
+        </div>
+    </div>
+
+    <br>
+
+    {% endblock %}
+
+    
+    {% block script %}
+    <script src='{% static "/js/validations/formulariouploadbike.js" %}' type="text/javascript"></script>
+        <script src='{% static "/js/validations/numbers.js" %}' type="text/javascript"></script>
+    {% endblock script %}
+        

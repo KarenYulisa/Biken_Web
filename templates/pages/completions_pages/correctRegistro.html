@@ -1,0 +1,77 @@
+{% extends 'root.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Registro Éxitoso || Biken
+{% endblock title %}
+    
+
+{% block classbody %}
+    <body class="bgimg_paginamensaje">
+{% endblock classbody %}
+
+
+    {% block navbar %}
+    {% block switch %}
+    <a id="switch">
+    </a>
+    {% endblock switch %}
+        
+    {% endblock navbar %}
+    
+    
+
+    
+
+    {% block scriptmessage %} 
+            
+    {% if messages %}
+    {% for m in messages %}
+    <script>
+        Swal.fire({
+            "title": '<span class="title_alert"> <br class="h5 text-capitalize">Gracias por ser parte de Biken {{request.user.first_name}}</span>',
+            "text": "{{m}}",
+            "icon": "success",
+            "confirmButtonText": 'Ok',
+            "confirmButtonColor": '#2059BD',
+            "allowOutsideClick": false,
+            "allowEscapeKey": false,
+            "allowEnterKey": false,
+            "stopKeydownPropagation": false,
+
+        }).then((result) => {
+            if (result.value) {
+                window.location.href = "{% url 'home' %}"
+            }
+        });
+    </script>
+    {% endfor %}
+    {% endif %}
+
+    {% endblock scriptmessage%}
+
+
+    
+    {% block content %}
+        <nav class="navbar navbar-expand-sm fixed-top">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src='{% static "/img/iconsBiken/icono.png" %}' alt="logo" style="width:75px;">
+                </a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                <img class="anim3">
+                </div>
+            </div>
+        </div>
+        
+    {% endblock content %}
+        
+        
+    {% block footer %}
+
+    {% endblock footer %}
+            
